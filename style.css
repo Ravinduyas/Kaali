@@ -294,3 +294,12 @@
     margin: 0 10px;
     color: #9e9a9a;
 }
+.fa-xmark{
+    position: absolute;
+    right: 10%;
+    top: 15%;
+    font-size: 25px;
+}
+.show{
+    transform: translateX(0);
+}

@@ -98,5 +98,24 @@
             </div>
         </div>
     </div>
+    <script>
+        toggle = document.querySelector(".toggle")
+        navbar = document.querySelector("side-bar")
+        cross = document.querySelector(".fa-xmark")
+
+        toggle.onClick=()=>{
+            navbar.classList.toggle("show")
+        }
+        cross.onClick=()=>{
+            navbar.classList.toggle("show")
+        }
+        window.onscroll=()=>{
+            if(window.scrollY>80){
+                toggle.classList.add('nav-active');
+            }else{
+                toggle.classList.remove('nav-active')
+            }
+        }
+    </script>
 </body>
 </html>
