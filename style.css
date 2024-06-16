@@ -15,3 +15,7 @@
     transition: 0.6s ease-in-out all;
     outline: none;
 }
+:root{
+    --primary_color:#28e98c;
+
+}
