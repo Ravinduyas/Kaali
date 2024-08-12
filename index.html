@@ -1,29 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta rel="stylesheet" href="style.css">
     <meta name="description" content="Kaali Personal Portfolio Responsive Website">
     <meta name="keywords" content="Kaali, portfolio, youtuber">
     <meta http-equiv="refresh" content="30">
     <meta name="author" content="Kariyawasam Thanthrige Ravindu Yasanka">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <title>Kaali Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            font-size: 17px;
+            font-family: 'Asap Condensed', sans-serif;
+            font-family: 'Lato', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            color: #ffcfcf;
+            transition: 0.6s ease-in-out all;
+            outline: none;
+        }
+
+        :root {
+            --primary_color: #28e98c;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 90vh;
+            background: #1f1f1f;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 5%;
+            gap: 20px;
+            position: relative;
+        }
+
+        .profile {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3% 2%;
+            border: 0.5px solid #858383;
+            border-radius: 3rem;
+            gap: 20px;
+        }
+
+        .profile .heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile .image {
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .profile .image img {
+            width: 100%;
+            border-radius: 3rem;
+        }
+
+        .profile h2 {
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .profile p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .profile .icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .profile .icons .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            border: 2px solid #999;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .profile .icons .icon:hover {
+            border-color: var(--primary_color);
+            color: var(--primary_color);
+        }
+
+        .profile button {
+            background: var(--primary_color);
+            width: 100%;
+            padding: 10px;
+            color: #1f1f1f;
+            border-radius: 30px;
+            border: 2px solid var(--primary_color);
+            font-size: 18px;
+        }
+
+        .profile button:hover {
+            color: var(--primary_color);
+            background-color: #1f1f1f;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .content p {
+            font-size: 14px;
+            border: 1px solid #999;
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: #d8d0d0;
+        }
+
+        .content h1 {
+            font-size: 2rem;
+            font-weight: 100;
+            text-align: center;
+        }
+
+        .content h1 span {
+            color: var(--primary_color);
+        }
+
+        .content h4 {
+            color: #999;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar .toggle {
+            border: 2px solid #999;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .navbar .toggle:hover {
+            border-color: var(--primary_color);
+        }
+
+        .navbar .toggle i {
+            font-size: 20px;
+        }
+
+        .side-bar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 70%;
+            background: #1f1f1f;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .side-bar.show {
+            transform: translateX(0);
+        }
+
+        .side-bar h3 {
+            font-size: 22px;
+            color: #9e9a9a;
+        }
+
+        .side-bar ul li {
+            margin: 10px 0;
+        }
+
+        .side-bar ul li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .side-bar ul li a span {
+            color: #9e9a9a;
+            font-size: 15px;
+        }
+
+        .side-bar ul li a i {
+            color: #9e9a9a;
+            font-size: 15px;
+        }
+
+        .side-bar .social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .side-bar .social i {
+            font-size: 18px;
+            color: #9e9a9a;
+        }
+
+        .fa-xmark {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 25px;
+        }
+
+        @media (min-width: 800px) {
+            .container {
+                flex-direction: row;
+                padding: 5% 7%;
+            }
+
+            .profile {
+                flex: 25%;
+                padding: 5%;
+            }
+
+            .content {
+                flex: 50%;
+                align-items: flex-start;
+                padding-top: 5%;
+                padding-bottom: 10px;
+                margin: 0 5%;
+            }
+
+            .content h1 {
+                font-size: 3.5rem;
+                text-align: left;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 7%;
+                right: 7%;
+                flex: 10%;
+            }
+
+            .side-bar {
+                width: 25%;
+            }
+            body {
+                overflow: hidden;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <div class="profile">
             <div class="heading">
-                <img src="kaali1" alt="kaali logo">    
-                <h6 style="text-align: end;">Internet Character</h6>
+                <img src="kaali1" alt="kaali logo">
+                <h6 style="text-align: center;">Internet Character</h6>
             </div>
             <div class="image">
                 <img src="kaali1.jpeg" alt="kaali">
             </div>
-            <h2>hello@Kaali.com<br>Base in Colombo,Sri Lanka
-            </h2>
+            <h2>hello@Kaali.com<br>Base in Colombo, Sri Lanka</h2>
             <p>&#169 2024 Kaali. All Rights Reserved</p>
             <div class="icons">
                 <div class="icon">
@@ -41,81 +303,66 @@
                 <div class="icon">
                     <i class="fa-brands fa-tiktok"></i>
                 </div>
-                
             </div>
-                <button>
-                    <i class="fa-sharp fa-regular fa-envelope"></i>
-                </button>
+            <button>
+                <i class="fa-sharp fa-regular fa-envelope"></i>
+            </button>
         </div>
         <div class="content">
-            <p><i class="fa-solid fa-house"></i>INTRODUCE</p>
-            <h1>say hi from <span style="font-size: 65px">Kaali</span>, Youtuber and Social Media Personality</h1>
-            <h4>anything...</h4>
-            <div class="image">
-                <i class="fa-solid fa-arrow-down"></i>
-                <!-- <img src="peace.jpg" alt=""> -->
-            </div>
+            <p style="font-size: 15px; color: #cccccc;">My name is</p>
+            <h1>Kaali <span>Multimedia Creator</span></h1>
+            <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae veritatis accusantium sed id
+                molestiae reiciendis adipisci ratione tempore iusto perferendis similique non nobis, aspernatur quo
+                soluta vero praesentium debitis minus?</h4>
         </div>
         <div class="navbar">
             <div class="toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
-            <div class="navbar-icons">
-                <ul>
-                    <li><a href="#"><span>Home</span><i class="fa-solid fa-house"></i></a></li>
-                    <li><a href="#"><span>User</span><i class="fa-solid fa-user"></i></a></li>
-                    <li><a href="#"><span>Resume</span><i class="fa-solid fa-bag-shopping"></i></a></li>
-                    <li><a href="#"><span>Service</span><i class="fa-solid fa-regular fa-bars-staggered"></i></a></li>
-                    <li><a href="#"><span>Skills</span><i class="fa-solid fa-pen"></i></a></li>
-                    <li><a href="#"><span>Portfolios</span><i class="fa-solid fa-building"></i></a></li>
-                    <li><a href="#"><span>Testimonal</span><i class="fa-solid fa-message"></i></a></li>
-                    <li><a href="#"><span>Contact</span><i class="fa-sharp fa-regular fa-envelope"></i></a></li>
-                </ul>
-            </div>
         </div>
         <div class="side-bar">
             <i class="fa-solid fa-xmark"></i>
-            <h3>menu</h3>
+            <h3>Menu</h3>
             <ul>
-                <li><a href="#"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-user"></i><span>User</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-bag-shopping"></i><span>Resume</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-regular fa-bars-staggered"></i><span>Service</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-pen"></i><span>Skills</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-building"></i><span>Portfolios</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-message"></i><span>Testimonal</span></a></li>
-                <li><a href="#"><i class="fa-sharp fa-regular fa-envelope"></i><span>Contact</span></a></li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-house"></i><span>Home</span></a>
+                </li>
+                <li>
+                    <a href="about.html"><i class="fa-solid fa-user"></i><span>About</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-phone"></i><span>Contact</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-circle-info"></i><span>Services</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-comment"></i><span>Feedback</span></a>
+                </li>
             </ul>
             <div class="social">
-                <h3>Social</h3>
-                <div>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-tiktok"></i>
-                </div>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
             </div>
         </div>
     </div>
-    <script>
-        toggle = document.querySelector(".toggle")
-        navbar = document.querySelector("side-bar")
-        cross = document.querySelector(".fa-xmark")
 
-        toggle.onClick=()=>{
-            navbar.classList.toggle("show")
+    <script>
+        const toggleBtn = document.querySelector('.toggle');
+        const closeBtn = document.querySelector('.fa-xmark');
+        const navbar = document.querySelector('.side-bar');
+
+        toggleBtn.onclick = () => {
+            navbar.classList.toggle('show');
         }
-        cross.onClick=()=>{
-            navbar.classList.toggle("show")
-        }
-        window.onscroll=()=>{
-            if(window.scrollY>80){
-                toggle.classList.add('nav-active');
-            }else{
-                toggle.classList.remove('nav-active')
-            }
+
+        closeBtn.onclick = () => {
+            navbar.classList.remove('show');
         }
     </script>
 </body>
+
 </html>
